@@ -15,8 +15,9 @@ import { SYSTEM_INSTRUCTION } from "../constants";
  */
 
 // Initialize Gemini Client
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
+const ai = new GoogleGenAI({
+  apiKey: import.meta.env.VITE_GEMINI_API_KEY
+});
 export const sendMessageToGemini = async (message: string, history: { role: 'user' | 'model'; text: string }[]): Promise<string> => {
   try {
     const modelId = 'gemini-3-flash-preview'; 
